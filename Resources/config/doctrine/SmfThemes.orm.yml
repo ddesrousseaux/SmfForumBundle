@@ -1,0 +1,39 @@
+Sima\SmfForumBundle\Entity\SmfThemes:
+    type: entity
+    table: smf_themes
+    indexes:
+        ID_MEMBER:
+            columns:
+                - id_member
+    id:
+        idTheme:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            id: true
+            column: id_theme
+        idMember:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            id: true
+            column: id_member
+        variable:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            id: true
+    fields:
+        value:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+    lifecycleCallbacks: {  }

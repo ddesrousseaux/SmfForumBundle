@@ -1,0 +1,72 @@
+Sima\SmfForumBundle\Entity\SmfMailQueue:
+    type: entity
+    table: smf_mail_queue
+    indexes:
+        time_sent:
+            columns:
+                - time_sent
+        mail_priority:
+            columns:
+                - priority
+                - id_mail
+    id:
+        idMail:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: id_mail
+            generator:
+                strategy: IDENTITY
+    fields:
+        timeSent:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: time_sent
+        recipient:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        body:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        subject:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        headers:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        sendHtml:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: send_html
+        priority:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+        private:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+    lifecycleCallbacks: {  }

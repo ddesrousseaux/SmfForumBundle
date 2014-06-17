@@ -1,0 +1,21 @@
+Sima\SmfForumBundle\Entity\SmfGroupModerators:
+    type: entity
+    table: smf_group_moderators
+    id:
+        idGroup:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            id: true
+            column: id_group
+        idMember:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            id: true
+            column: id_member
+    lifecycleCallbacks: {  }

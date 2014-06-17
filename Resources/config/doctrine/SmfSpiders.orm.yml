@@ -1,0 +1,39 @@
+Sima\SmfForumBundle\Entity\SmfSpiders:
+    type: entity
+    table: smf_spiders
+    id:
+        idSpider:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: id_spider
+            generator:
+                strategy: IDENTITY
+    fields:
+        spiderName:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: spider_name
+        userAgent:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: user_agent
+        ipInfo:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: ip_info
+    lifecycleCallbacks: {  }

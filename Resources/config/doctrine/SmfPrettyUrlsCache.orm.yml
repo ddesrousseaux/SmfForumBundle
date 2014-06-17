@@ -1,0 +1,22 @@
+Sima\SmfForumBundle\Entity\SmfPrettyUrlsCache:
+    type: entity
+    table: smf_pretty_urls_cache
+    id:
+        urlId:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            id: true
+            column: url_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        replacement:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+    lifecycleCallbacks: {  }

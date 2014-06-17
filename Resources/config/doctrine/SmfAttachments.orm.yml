@@ -1,0 +1,119 @@
+Sima\SmfForumBundle\Entity\SmfAttachments:
+    type: entity
+    table: smf_attachments
+    indexes:
+        ID_MSG:
+            columns:
+                - id_msg
+        attachment_type:
+            columns:
+                - attachment_type
+    uniqueConstraints:
+        ID_MEMBER:
+            columns:
+                - id_member
+                - id_attach
+    id:
+        idAttach:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: id_attach
+            generator:
+                strategy: IDENTITY
+    fields:
+        idThumb:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: id_thumb
+        idMsg:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: id_msg
+        idMember:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: id_member
+        filename:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        size:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+        downloads:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+        attachmentType:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: attachment_type
+        width:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+        height:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+        fileHash:
+            type: string
+            nullable: false
+            length: 40
+            fixed: false
+            comment: ''
+            default: ''
+            column: file_hash
+        fileext:
+            type: string
+            nullable: false
+            length: 8
+            fixed: false
+            comment: ''
+            default: ''
+        mimeType:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            default: ''
+            column: mime_type
+        idFolder:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            column: id_folder
+        approved:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+    lifecycleCallbacks: {  }

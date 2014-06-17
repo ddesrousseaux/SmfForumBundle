@@ -1,0 +1,470 @@
+Sima\SmfForumBundle\Entity\SmfMembers:
+    type: entity
+    table: smf_members
+    indexes:
+        memberName:
+            columns:
+                - member_name
+        dateRegistered:
+            columns:
+                - date_registered
+        ID_GROUP:
+            columns:
+                - id_group
+        birthdate:
+            columns:
+                - birthdate
+        posts:
+            columns:
+                - posts
+        lastLogin:
+            columns:
+                - last_login
+        ID_POST_GROUP:
+            columns:
+                - id_post_group
+        lngfile:
+            columns:
+                - lngfile
+        warning:
+            columns:
+                - warning
+        total_time_logged_in:
+            columns:
+                - total_time_logged_in
+        id_theme:
+            columns:
+                - id_theme
+        real_name:
+            columns:
+                - real_name
+    id:
+        idMember:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: id_member
+            generator:
+                strategy: IDENTITY
+    fields:
+        memberName:
+            type: string
+            nullable: false
+            length: 80
+            fixed: false
+            comment: ''
+            default: ''
+            column: member_name
+        dateRegistered:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: date_registered
+        posts:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+        idGroup:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: id_group
+        lngfile:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        lastLogin:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: last_login
+        realName:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: real_name
+        instantMessages:
+            type: smallint
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: instant_messages
+        unreadMessages:
+            type: smallint
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: unread_messages
+        pmIgnoreList:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: pm_ignore_list
+        passwd:
+            type: string
+            nullable: false
+            length: 64
+            fixed: false
+            comment: ''
+            default: ''
+        emailAddress:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: email_address
+        personalText:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: personal_text
+        gender:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+        birthdate:
+            type: date
+            nullable: false
+            comment: ''
+            default: '0001-01-01'
+        websiteTitle:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: website_title
+        websiteUrl:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: website_url
+        location:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        icq:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        aim:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        yim:
+            type: string
+            nullable: false
+            length: 32
+            fixed: false
+            comment: ''
+            default: ''
+        msn:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        hideEmail:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: hide_email
+        showOnline:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            column: show_online
+        timeFormat:
+            type: string
+            nullable: false
+            length: 80
+            fixed: false
+            comment: ''
+            default: ''
+            column: time_format
+        signature:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        timeOffset:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            comment: ''
+            default: '0'
+            column: time_offset
+        avatar:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        pmEmailNotify:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: pm_email_notify
+        karmaBad:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: karma_bad
+        karmaGood:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: karma_good
+        usertitle:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        notifyAnnouncements:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            column: notify_announcements
+        notifyRegularity:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            column: notify_regularity
+        memberIp:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: member_ip
+        secretQuestion:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: secret_question
+        secretAnswer:
+            type: string
+            nullable: false
+            length: 64
+            fixed: false
+            comment: ''
+            default: ''
+            column: secret_answer
+        idTheme:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: id_theme
+        isActivated:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            column: is_activated
+        isSpammer:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: is_spammer
+        validationCode:
+            type: string
+            nullable: false
+            length: 10
+            fixed: false
+            comment: ''
+            default: ''
+            column: validation_code
+        idMsgLastVisit:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: id_msg_last_visit
+        additionalGroups:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: additional_groups
+        smileySet:
+            type: string
+            nullable: false
+            length: 48
+            fixed: false
+            comment: ''
+            default: ''
+            column: smiley_set
+        idPostGroup:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: id_post_group
+        totalTimeLoggedIn:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: total_time_logged_in
+        passwordSalt:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: password_salt
+        messageLabels:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: message_labels
+        buddyList:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: buddy_list
+        notifySendBody:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: notify_send_body
+        notifyTypes:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '2'
+            column: notify_types
+        memberIp2:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: member_ip2
+        modPrefs:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            default: ''
+            column: mod_prefs
+        warning:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+        ignoreBoards:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: ignore_boards
+        passwdFlood:
+            type: string
+            nullable: false
+            length: 12
+            fixed: false
+            comment: ''
+            default: ''
+            column: passwd_flood
+        newPm:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: new_pm
+        pmPrefs:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: pm_prefs
+        openidUri:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: openid_uri
+        pmReceiveFrom:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+            column: pm_receive_from
+    lifecycleCallbacks: {  }

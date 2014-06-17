@@ -1,0 +1,12 @@
+sima_smf_user_login:
+    pattern:  /login
+    defaults: { _controller: SimaSmfForumBundle:Security:login }
+
+sima_smf_user_check:
+    pattern:  /login_check
+    defaults: { _controller: SimaSmfForumBundle:Security:check }
+
+sima_smf_user_logout:
+    pattern:  /logout
+    defaults: { _controller: SimaSmfForumBundle:Security:logout }
+

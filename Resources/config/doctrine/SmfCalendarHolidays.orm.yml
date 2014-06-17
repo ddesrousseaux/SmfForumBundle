@@ -1,0 +1,32 @@
+Sima\SmfForumBundle\Entity\SmfCalendarHolidays:
+    type: entity
+    table: smf_calendar_holidays
+    indexes:
+        eventDate:
+            columns:
+                - event_date
+    id:
+        idHoliday:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: id_holiday
+            generator:
+                strategy: IDENTITY
+    fields:
+        eventDate:
+            type: date
+            nullable: false
+            comment: ''
+            default: '0001-01-01'
+            column: event_date
+        title:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+    lifecycleCallbacks: {  }

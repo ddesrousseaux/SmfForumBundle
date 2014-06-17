@@ -1,0 +1,23 @@
+Sima\SmfForumBundle\Entity\SmfPermissionProfiles:
+    type: entity
+    table: smf_permission_profiles
+    id:
+        idProfile:
+            type: smallint
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: id_profile
+            generator:
+                strategy: IDENTITY
+    fields:
+        profileName:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: profile_name
+    lifecycleCallbacks: {  }

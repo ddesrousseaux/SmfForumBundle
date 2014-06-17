@@ -1,0 +1,28 @@
+Sima\SmfForumBundle\Entity\SmfSessions:
+    type: entity
+    table: smf_sessions
+    id:
+        sessionId:
+            type: string
+            nullable: false
+            length: 32
+            fixed: true
+            comment: ''
+            id: true
+            column: session_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        lastUpdate:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            column: last_update
+        data:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+    lifecycleCallbacks: {  }

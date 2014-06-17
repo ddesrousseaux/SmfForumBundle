@@ -1,0 +1,51 @@
+Sima\SmfForumBundle\Entity\SmfOpenidAssoc:
+    type: entity
+    table: smf_openid_assoc
+    indexes:
+        expires:
+            columns:
+                - expires
+    id:
+        serverUrl:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            id: true
+            column: server_url
+        handle:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            id: true
+    fields:
+        secret:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        issued:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+        expires:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+        assocType:
+            type: string
+            nullable: false
+            length: 64
+            fixed: false
+            comment: ''
+            column: assoc_type
+    lifecycleCallbacks: {  }

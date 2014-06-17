@@ -1,0 +1,67 @@
+Sima\SmfForumBundle\Entity\SmfScheduledTasks:
+    type: entity
+    table: smf_scheduled_tasks
+    indexes:
+        next_time:
+            columns:
+                - next_time
+        disabled:
+            columns:
+                - disabled
+    uniqueConstraints:
+        task:
+            columns:
+                - task
+    id:
+        idTask:
+            type: smallint
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: id_task
+            generator:
+                strategy: IDENTITY
+    fields:
+        nextTime:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: next_time
+        timeOffset:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: time_offset
+        timeRegularity:
+            type: smallint
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+            column: time_regularity
+        timeUnit:
+            type: string
+            nullable: false
+            length: 1
+            fixed: false
+            comment: ''
+            default: h
+            column: time_unit
+        disabled:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+        task:
+            type: string
+            nullable: false
+            length: 24
+            fixed: false
+            comment: ''
+            default: ''
+    lifecycleCallbacks: {  }

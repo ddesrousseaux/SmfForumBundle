@@ -1,0 +1,60 @@
+Sima\SmfForumBundle\Entity\SmfPmRules:
+    type: entity
+    table: smf_pm_rules
+    indexes:
+        id_member:
+            columns:
+                - id_member
+        delete_pm:
+            columns:
+                - delete_pm
+    id:
+        idRule:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: id_rule
+            generator:
+                strategy: IDENTITY
+    fields:
+        idMember:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: id_member
+        ruleName:
+            type: string
+            nullable: false
+            length: 60
+            fixed: false
+            comment: ''
+            column: rule_name
+        criteria:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        actions:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        deletePm:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: delete_pm
+        isOr:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: is_or
+    lifecycleCallbacks: {  }

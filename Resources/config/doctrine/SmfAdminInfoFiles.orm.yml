@@ -1,0 +1,52 @@
+Sima\SmfForumBundle\Entity\SmfAdminInfoFiles:
+    type: entity
+    table: smf_admin_info_files
+    indexes:
+        filename:
+            columns:
+                - filename
+    id:
+        idFile:
+            type: boolean
+            nullable: false
+            comment: ''
+            id: true
+            column: id_file
+            generator:
+                strategy: IDENTITY
+    fields:
+        filename:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        path:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        parameters:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        data:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        filetype:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+    lifecycleCallbacks: {  }

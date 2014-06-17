@@ -1,0 +1,102 @@
+Sima\SmfForumBundle\Entity\SmfBanItems:
+    type: entity
+    table: smf_ban_items
+    indexes:
+        ID_BAN_GROUP:
+            columns:
+                - id_ban_group
+    id:
+        idBan:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: id_ban
+            generator:
+                strategy: IDENTITY
+    fields:
+        idBanGroup:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: id_ban_group
+        ipLow1:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: ip_low1
+        ipHigh1:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: ip_high1
+        ipLow2:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: ip_low2
+        ipHigh2:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: ip_high2
+        ipLow3:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: ip_low3
+        ipHigh3:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: ip_high3
+        ipLow4:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: ip_low4
+        ipHigh4:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: ip_high4
+        hostname:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        emailAddress:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: email_address
+        idMember:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: id_member
+        hits:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+    lifecycleCallbacks: {  }

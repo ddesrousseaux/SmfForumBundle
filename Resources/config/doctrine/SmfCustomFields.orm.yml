@@ -1,0 +1,132 @@
+Sima\SmfForumBundle\Entity\SmfCustomFields:
+    type: entity
+    table: smf_custom_fields
+    uniqueConstraints:
+        col_name:
+            columns:
+                - col_name
+    id:
+        idField:
+            type: smallint
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: id_field
+            generator:
+                strategy: IDENTITY
+    fields:
+        colName:
+            type: string
+            nullable: false
+            length: 12
+            fixed: false
+            comment: ''
+            default: ''
+            column: col_name
+        fieldName:
+            type: string
+            nullable: false
+            length: 40
+            fixed: false
+            comment: ''
+            default: ''
+            column: field_name
+        fieldDesc:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: field_desc
+        fieldType:
+            type: string
+            nullable: false
+            length: 8
+            fixed: false
+            comment: ''
+            default: text
+            column: field_type
+        fieldLength:
+            type: smallint
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '255'
+            column: field_length
+        fieldOptions:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: field_options
+        mask:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        showReg:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: show_reg
+        showDisplay:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: show_display
+        showProfile:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            default: forumprofile
+            column: show_profile
+        private:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+        active:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '1'
+        bbc:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+        canSearch:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+            column: can_search
+        defaultValue:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+            column: default_value
+        enclose:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        placement:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+    lifecycleCallbacks: {  }

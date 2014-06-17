@@ -1,0 +1,19 @@
+Sima\SmfForumBundle\Entity\SmfCollapsedCategories:
+    type: entity
+    table: smf_collapsed_categories
+    id:
+        idCat:
+            type: boolean
+            nullable: false
+            comment: ''
+            id: true
+            column: id_cat
+        idMember:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            id: true
+            column: id_member
+    lifecycleCallbacks: {  }

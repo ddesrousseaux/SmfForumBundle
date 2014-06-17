@@ -1,0 +1,21 @@
+Sima\SmfForumBundle\Entity\SmfModerators:
+    type: entity
+    table: smf_moderators
+    id:
+        idBoard:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            id: true
+            column: id_board
+        idMember:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            id: true
+            column: id_member
+    lifecycleCallbacks: {  }

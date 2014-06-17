@@ -1,0 +1,47 @@
+Sima\SmfForumBundle\Entity\SmfMessageIcons:
+    type: entity
+    table: smf_message_icons
+    indexes:
+        ID_BOARD:
+            columns:
+                - id_board
+    id:
+        idIcon:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: id_icon
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 80
+            fixed: false
+            comment: ''
+            default: ''
+        filename:
+            type: string
+            nullable: false
+            length: 80
+            fixed: false
+            comment: ''
+            default: ''
+        idBoard:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: id_board
+        iconOrder:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: icon_order
+    lifecycleCallbacks: {  }

@@ -1,0 +1,29 @@
+Sima\SmfForumBundle\Entity\SmfPackageServers:
+    type: entity
+    table: smf_package_servers
+    id:
+        idServer:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: id_server
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+        url:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            default: ''
+    lifecycleCallbacks: {  }

@@ -1,0 +1,7 @@
+parameters:
+#    see config.yml
+
+services:
+   sima_smf_forum.rest_api:
+       class: Sima\SmfForumBundle\Util\SmfRestClient
+       arguments: [%smfapi_secretkey%]
