@@ -1,7 +1,21 @@
 parameters:
-#    see config.yml
+    sima_smf_forum.rest_api.class: Sima\SmfForumBundle\Util\SmfRestClient
+    sima_smf_forum.user_provider.class: Sima\SmfForumBundle\Security\User\SmfUserProvider
+    smfforum.security.authentication.provider.class: Sima\SmfForumBundle\Security\Authentication\SmfAuthProvider
+    smfforum.security.authentication.listener.class: Sima\SmfForumBundle\Security\Firewall\SmfUserListener
 
 services:
-   sima_smf_forum.rest_api:
-       class: Sima\SmfForumBundle\Util\SmfRestClient
+    sima_smf_forum.rest_api:
+       class: %sima_smf_forum.rest_api.class%
        arguments: [%smfapi_secretkey%]
+    sima_smf_forum.user_provider:
+        class: "%sima_smf_forum.user_provider.class%"
+        arguments: ["@sima_smf_forum.rest_api"]
+
+    smfforum.security.authentication.provider:
+        class:  "%smfforum.security.authentication.provider.class%"
+        arguments: [@sima_smf_forum.user_provider, %kernel.cache_dir%/security/nonces]
+
+    smfforum.security.authentication.listener:
+        class:  "%smfforum.security.authentication.listener.class%"
+        arguments: [@security.context, @security.authentication.manager]

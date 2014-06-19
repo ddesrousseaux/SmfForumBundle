@@ -85,9 +85,11 @@ class SmfRestClient
      */
     public function __destruct()
     {
-        foreach (glob("$this->save_path/sess_*") as $filename) {
-            if (filemtime($filename) + 3600 < time()) {
-                @unlink($filename);
+        if (isset($this->save_path)) {
+            foreach (glob("$this->save_path/sess_*") as $filename) {
+                if (filemtime($filename) + 3600 < time()) {
+                    @unlink($filename);
+                }
             }
         }
     }
