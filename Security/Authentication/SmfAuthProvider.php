@@ -8,6 +8,7 @@ use Symfony\Component\Security\Core\Exception\NonceExpiredException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Sima\SmfForumBundle\Security\Authentication\SmfUserToken;
 
+
 class SmfAuthProvider implements AuthenticationProviderInterface
 {
     private $userProvider;
@@ -23,7 +24,7 @@ class SmfAuthProvider implements AuthenticationProviderInterface
     {
         $user = $this->userProvider->loadUserByUsername($token->getUsername());
 
-        if ($user && $this->validateDigest($token->digest, $token->nonce, $token->created, $user->getPassword())) {
+        if ($user && $this->validateDigest($user, $token->digest)) {
             $authenticatedToken = new SmfUserToken($user->getRoles());
             $authenticatedToken->setUser($user);
 
@@ -33,21 +34,13 @@ class SmfAuthProvider implements AuthenticationProviderInterface
         throw new AuthenticationException('The SMF authentication failed.');
     }
 
-    protected function validateDigest($digest, $nonce, $created, $secret)
+    protected function validateDigest($user, $secret)
     {
-        // Expire le timestamp après 5 minutes
-        if (time() - strtotime($created) > 300) {
-            return false;
-        }
+        // $auth = $this->smf_api->authenticate_user($username = '', $password = '');
 
-        // Valide que le nonce est unique dans les 5 minutes
-        if (file_exists($this->cacheDir.'/'.$nonce) && file_get_contents($this->cacheDir.'/'.$nonce) + 300 > time()) {
-            throw new NonceExpiredException('Previously used nonce detected');
-        }
-        file_put_contents($this->cacheDir.'/'.$nonce, time());
-
-        // Valide le Secret
-        $expected = base64_encode(sha1(base64_decode($nonce).$created.$secret, true));
+        // Validate the password using smf encryption
+        $expected = $user->getPassword();
+        $digest =  sha1(strtolower($user->getUsername()) . $secret);
 
         return $digest === $expected;
     }

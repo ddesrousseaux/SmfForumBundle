@@ -23,18 +23,19 @@ class SmfUserListener implements ListenerInterface
     public function handle(GetResponseEvent $event)
     {
         $request = $event->getRequest();
+        $username = $request->get('_username');
 
-        $wsseRegex = '/UsernameToken Username="([^"]+)", PasswordDigest="([^"]+)", Nonce="([^"]+)", Created="([^"]+)"/';
-        if (!$request->headers->has('x-wsse') || 1 !== preg_match($wsseRegex, $request->headers->get('x-wsse'), $matches)) {
-            return;
-        }
+        // $wsseRegex = '/UsernameToken Username="([^"]+)", PasswordDigest="([^"]+)", Nonce="([^"]+)", Created="([^"]+)"/';
+        // if (!$request->headers->has('x-wsse') || 1 !== preg_match($wsseRegex, $request->headers->get('x-wsse'), $matches)) {
+        //     return;
+        // }
+        if (!$username) return;
 
-        $token = new WsseUserToken();
-        $token->setUser($matches[1]);
-
-        $token->digest   = $matches[2];
-        $token->nonce    = $matches[3];
-        $token->created  = $matches[4];
+        $token = new SmfUserToken();
+        $token->setUser($username);
+        $token->digest   = $request->get('_password');
+        // $token->nonce    = $matches[3];
+        // $token->created  = $matches[4];
 
         try {
             $authToken = $this->authenticationManager->authenticate($token);
@@ -42,10 +43,9 @@ class SmfUserListener implements ListenerInterface
             $this->securityContext->setToken($authToken);
         } catch (AuthenticationException $failed) {
             // ... you might log something here
-
             // To deny the authentication clear the token. This will redirect to the login page.
-            // $this->securityContext->setToken(null);
-            // return;
+            $this->securityContext->setToken(null);
+            return;
 
             // Deny authentication with a '403 Forbidden' HTTP response
             $response = new Response();

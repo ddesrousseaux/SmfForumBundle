@@ -8,7 +8,7 @@ class SmfUser extends AbstractSmfMembers implements UserInterface
 {
     public function getRoles()
     {
-        // return $this->roles;
+        return array('ROLE_USER');
     }
 
     public function getPassword()
@@ -52,7 +52,7 @@ class SmfUser extends AbstractSmfMembers implements UserInterface
     }
 
     public function import($object)
-    {   
+    {
         foreach (get_object_vars($object) as $key => $value) {
             $key = preg_replace('/_(.?)/e',"strtoupper('$1')", $key); //camelCase the properties
             $this->$key = $value;

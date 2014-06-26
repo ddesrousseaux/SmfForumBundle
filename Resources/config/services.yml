@@ -18,4 +18,4 @@ services:
 
     smfforum.security.authentication.listener:
         class:  "%smfforum.security.authentication.listener.class%"
-        arguments: [@security.context, @security.authentication.manager]
+        arguments: [@security.context, @smfforum.security.authentication.provider]

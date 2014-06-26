@@ -4,11 +4,23 @@ namespace Sima\SmfForumBundle\Controller;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class SecurityController extends ContainerAware
 {
     public function loginAction()
     {
+        $securityContext = $this->container->get('security.context');
+        $router = $this->container->get('router');
+
+        if ($securityContext->isGranted('ROLE_ADMIN')) {
+            return new RedirectResponse($router->generate('admin_home'), 307);
+        } 
+
+        if ($securityContext->isGranted('ROLE_USER')) {
+            return new RedirectResponse($router->generate('sima_default_homepage'), 307);
+        }
+
         $request = $this->container->get('request');
         /* @var $request \Symfony\Component\HttpFoundation\Request */
         $session = $request->getSession();
